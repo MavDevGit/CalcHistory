@@ -383,8 +383,13 @@ fun CalcButton(
         if (text == "DEL") {
             Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "DEL", tint = textColor)
         } else {
+            val displayText = when (text) {
+                "/" -> "÷"
+                "*" -> "×"
+                else -> text
+            }
             Text(
-                text = text,
+                text = displayText,
                 fontSize = if (isEqual) 20.sp else 24.sp,
                 fontWeight = if (isEqual || isOperator || isAction) FontWeight.Bold else FontWeight.Medium,
                 color = textColor
